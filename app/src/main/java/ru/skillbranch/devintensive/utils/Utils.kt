@@ -11,15 +11,15 @@ object Utils {
         //return firstName to lastName
         return if (firstName == "") {
             Pair(null, null)
-        } else{
+        } else {
 
             Pair(firstName, lastName)
         }
     }
 
-    fun transliteration(payload: String, divider:String = " "): String {
-        val firstName = replaceChars(payload.substringBefore(divider)).capitalize()
-        val lastName = replaceChars(payload.substringAfter(divider)).capitalize()
+    fun transliteration(payload: String, divider: String = " "): String {
+        val firstName = replaceChars(payload.substringBefore(" ")).capitalize()
+        val lastName = replaceChars(payload.substringAfter(" ")).capitalize()
 
         return firstName + divider + lastName
     }
@@ -66,8 +66,20 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        val first = firstName?.get(0)
-        val last = lastName?.get(0)
+        val first = firstName?.get(0)?.toUpperCase()
+        val last = lastName?.get(0)?.toUpperCase()
+
+        if (first == null && last == null) {
+            return null
+        }
+
+        if (first != null && last == null){
+            return "$first"
+        }
+
+        if (first == null && last != null){
+            return "$last"
+        }
 
         return "$first$last"
     }
