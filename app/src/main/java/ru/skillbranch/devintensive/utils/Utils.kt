@@ -12,7 +12,6 @@ object Utils {
         return if (firstName == "") {
             Pair(null, null)
         } else {
-
             Pair(firstName, lastName)
         }
     }
@@ -66,6 +65,15 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
+
+        if (firstName == "" || firstName == " ") {
+            return null
+        }
+
+        if (lastName == "" || lastName == " ") {
+            return null
+        }
+
         val first = firstName?.get(0)?.toUpperCase()
         val last = lastName?.get(0)?.toUpperCase()
 
@@ -73,11 +81,11 @@ object Utils {
             return null
         }
 
-        if (first != null && last == null){
+        if (first != null && last == null) {
             return "$first"
         }
 
-        if (first == null && last != null){
+        if (first == null && last != null) {
             return "$last"
         }
 
