@@ -20,7 +20,7 @@ object Utils {
         val firstName = replaceChars(payload.substringBefore(" ")).capitalize()
         val lastName = replaceChars(payload.substringAfter(" ")).capitalize()
 
-        return firstName + divider + lastName
+        return "$firstName$divider$lastName"
     }
 
     private fun replaceChars(payload: String): String {
