@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.skillbranch.devintensive.extensions.hideKeyboard
 import ru.skillbranch.devintensive.models.Bender
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -80,7 +81,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         outState.putString("QUESTION", benderObj.question.name)
         outState.putString("MESSAGE", messageEt.text.toString())
 
-        Log.d("M_MainActivity", "onSaveInstanceState ${benderObj.status.name} + ${benderObj.question.name} + ${messageEt.text.toString()}")
+        Log.d(
+            "M_MainActivity",
+            "onSaveInstanceState ${benderObj.status.name} + ${benderObj.question.name} + ${messageEt.text.toString()}"
+        )
     }
 
     override fun onClick(v: View?) {
