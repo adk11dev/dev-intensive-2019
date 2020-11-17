@@ -18,6 +18,5 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //TODO call once when application created
     }
 }
